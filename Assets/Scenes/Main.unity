@@ -246,7 +246,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-18978
+  m_Name: pb_Mesh20726
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -790,6 +790,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144c83a221d178d41b8b613e0466e9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpeed: 3
+  runSpeed: 5
+  turnSmoothTime: 0
+  actionTime: 1
+  isCarrying: 0
+  cam: {fileID: 35546300}
 --- !u!54 &940696634
 Rigidbody:
   m_ObjectHideFlags: 0

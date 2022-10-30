@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: d8061f338b0038c4bb99c897e0334f5a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - T: {instanceID: 0}
+  - R: {instanceID: 0}
+  - B: {fileID: 3544489588178278994, guid: 943b19b5122c51b4b926634203b86100, type: 3}
+  - L: {instanceID: 0}
+  - TB: {instanceID: 0}
+  - RL: {instanceID: 0}
+  - TR: {instanceID: 0}
+  - TL: {instanceID: 0}
+  - BR: {instanceID: 0}
+  - BL: {instanceID: 0}
+  - LTB: {instanceID: 0}
+  - TRL: {instanceID: 0}
+  - RBT: {instanceID: 0}
+  - BLR: {instanceID: 0}
+  - StartRoom: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

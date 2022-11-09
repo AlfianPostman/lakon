@@ -8,7 +8,7 @@ public class LevelGeneration : MonoBehaviour
     Room[,] rooms;
     List<Vector2> takenPositions = new List<Vector2>();
     int gridSizeX, gridSizeY, numberOfRooms = 20;
-    public GameObject roomWhiteObj;
+    public GameObject roomWhiteObj, platformObj;
 
     void Start ()
     {
@@ -201,12 +201,25 @@ public class LevelGeneration : MonoBehaviour
             Vector2 drawPos = room.gridPos;
             drawPos.x *= 1;
             drawPos.y *= 1;
+
+            Vector3 drawPos2 = new Vector3(room.gridPos.x,      0 , room.gridPos.y);
+            drawPos2.x *= 30;
+            drawPos2.z *= 30;
             
             MapSpriteSelector mapper = Object.Instantiate(roomWhiteObj, drawPos, Quaternion.identity).GetComponent<MapSpriteSelector>();
             mapper.top = room.doorTop;
             mapper.bottom = room.doorBot;
             mapper.right = room.doorRight;
             mapper.left = room.doorLeft;
+            
+            PlatformSelector platter = Object.Instantiate(platformObj, drawPos2, Quaternion.identity).GetComponent<PlatformSelector>();
+            platter.top = room.doorTop;
+            platter.bottom = room.doorBot;
+            platter.right = room.doorRight;
+            platter.left = room.doorLeft;
+
+            mapper.transform.parent = gameObject.transform;
+            platter.transform.parent = gameObject.transform;
         }
     }
 }

@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 8f438181f53745e45a326fb7bf39da7d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - T: {fileID: 8923366837472228374, guid: f8e097453a6b1de4296ade2b1e342efc, type: 3}
+  - R: {fileID: 8923366837472228374, guid: 1fed2f421f11a5a409a48fe191aea86e, type: 3}
+  - B: {fileID: 3544489588178278994, guid: 943b19b5122c51b4b926634203b86100, type: 3}
+  - L: {fileID: 8923366837472228374, guid: 07f2ddb8e4685234a8cb17297d8a7187, type: 3}
+  - TB: {fileID: 8923366837472228374, guid: 0b3df1d5cb85f0d4d9b55ed9bfca6b6f, type: 3}
+  - RL: {fileID: 8923366837472228374, guid: 9ca9b29e445a16a41b22a415738014ce, type: 3}
+  - TR: {fileID: 8923366837472228374, guid: a857fe96ee4105347b4f278a730ce523, type: 3}
+  - LT: {fileID: 8923366837472228374, guid: 4456ae5a91f60d94d84862263aa3067d, type: 3}
+  - RB: {fileID: 8923366837472228374, guid: fc2b7e4d7f83d4648a39cc51a17f5d7e, type: 3}
+  - BL: {fileID: 8923366837472228374, guid: 0eb2ea754bd956341881417af05ea51c, type: 3}
+  - LTB: {instanceID: 0}
+  - TRL: {instanceID: 0}
+  - RBT: {instanceID: 0}
+  - BLR: {fileID: 8923366837472228374, guid: 6d3b2754659863b4f97fd124a598c558, type: 3}
+  - A: {fileID: 8923366837472228374, guid: ead20a6f7b5b0ee4ca039b38025c1eba, type: 3}
+  - selectedRoom: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,7 +8,7 @@ public class LevelGeneration : MonoBehaviour
     Room[,] rooms;
     List<Vector2> takenPositions = new List<Vector2>();
     int gridSizeX, gridSizeY, numberOfRooms = 20;
-    public GameObject roomWhiteObj, platformObj;
+    public GameObject roomWhiteObj, platformObj, targetCanvas;
 
     void Start ()
     {
@@ -202,7 +202,7 @@ public class LevelGeneration : MonoBehaviour
             drawPos.x *= 1;
             drawPos.y *= 1;
 
-            Vector3 drawPos2 = new Vector3(room.gridPos.x,      0 , room.gridPos.y);
+            Vector3 drawPos2 = new Vector3(room.gridPos.x, 0, room.gridPos.y);
             drawPos2.x *= 30;
             drawPos2.z *= 30;
             
@@ -218,7 +218,7 @@ public class LevelGeneration : MonoBehaviour
             platter.right = room.doorRight;
             platter.left = room.doorLeft;
 
-            mapper.transform.parent = gameObject.transform;
+            mapper.transform.parent = targetCanvas.transform;
             platter.transform.parent = gameObject.transform;
         }
     }

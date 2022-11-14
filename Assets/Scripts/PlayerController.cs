@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     float turnSmoothVelocity;
     float moveSpeed = 0f;
 
-    bool sprintButton;
+    bool walkButton;
     bool dashButton;
     bool ableToMove = true;
     public bool isCarrying = false;
@@ -19,10 +19,12 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     Vector2 input;
     Rigidbody rb;
+    Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
@@ -37,14 +39,19 @@ public class PlayerController : MonoBehaviour
             input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             input = Vector2.ClampMagnitude(input, 1);
 
-            sprintButton = Input.GetKey(KeyCode.LeftShift);
+            anim.SetFloat("speed", input.magnitude);
+
+            walkButton = Input.GetKey(KeyCode.LeftShift);
             dashButton = Input.GetKeyDown(KeyCode.Space);
 
-            if (sprintButton && !isCarrying) {
-                moveSpeed = runSpeed;
-            } else {
+            if (walkButton && !isCarrying) {
                 moveSpeed = baseSpeed;
+                anim.SetBool("isWalking", true); 
+            } else {
+                moveSpeed = runSpeed;
+                anim.SetBool("isWalking", false); 
             }
+
         }
     }
 

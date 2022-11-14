@@ -110,8 +110,9 @@ MonoBehaviour:
   RBT: {fileID: 900478321395230671, guid: 6c578b2152ae1a347bc72c7284b4168f, type: 3}
   BLR: {fileID: 6748183476916259547, guid: 036817934ebe82f4a974e294e97f37a7, type: 3}
   StartRoom: {fileID: 7460727873238368441, guid: c2c061b2bc7a6664c8d21d805704c17b, type: 3}
+  selectedRoom: {fileID: 0}
+  targetCanvas: {fileID: 3227095127745006657, guid: 4bd25c6ade756f64e995291a55120fc0, type: 3}
   top: 0
   bottom: 0
   left: 0
   right: 0
-  type: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grids : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
@@ -15,6 +15,7 @@ public class Grids : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
         nodeDiameter = nodeRadius*2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y/nodeDiameter);
@@ -56,7 +57,7 @@ public class Grids : MonoBehaviour
 
         if (grid != null)
         {
-            Node playerNode = NodeFromWorldPoint(player.position);
+            Node playerNode = NodeFromWorldPoint(player.transform.position);
 
             foreach (Node n in grid)
             {

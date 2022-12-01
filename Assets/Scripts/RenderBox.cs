@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class RenderBox : MonoBehaviour
 {
-    GameObject Platform, player;
+    GameObject Platform;
     Renderer mr;
     
     void Start()
     {
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
         Platform = this.transform.parent.gameObject;
         mr = Platform.GetComponent<Renderer>();
 

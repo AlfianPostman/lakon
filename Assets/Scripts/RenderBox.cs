@@ -7,7 +7,7 @@ public class RenderBox : MonoBehaviour
     GameObject Platform;
     Renderer mr;
     
-    void Start()
+    void Awake()
     {
         Platform = this.transform.parent.gameObject;
         mr = Platform.GetComponent<Renderer>();
@@ -20,6 +20,7 @@ public class RenderBox : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             mr.enabled = true;
+            Platform.layer = LayerMask.NameToLayer("PlatformRendered");
         }
     }
 }

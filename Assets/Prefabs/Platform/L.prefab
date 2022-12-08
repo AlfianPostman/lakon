@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5276541578956394013}
   - component: {fileID: 4340352352370954946}
   - component: {fileID: -7020703353092507159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: L
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 8bb297af52f7b0e4ba70dc3cdf30d0b1, type: 3}
+  - {fileID: 2100000, guid: 98ba206099b442847bf3bc6b411f0f7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,23 +123,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5766216113514289093, guid: 3cfb91010eb98434abd084acd9c2a60d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.49803263
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5766216113514289093, guid: 3cfb91010eb98434abd084acd9c2a60d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.49803263
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5766216113514289093, guid: 3cfb91010eb98434abd084acd9c2a60d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5019597
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5766216113514289093, guid: 3cfb91010eb98434abd084acd9c2a60d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5019597
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5766216113514289093, guid: 3cfb91010eb98434abd084acd9c2a60d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.45
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5766216113514289093, guid: 3cfb91010eb98434abd084acd9c2a60d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

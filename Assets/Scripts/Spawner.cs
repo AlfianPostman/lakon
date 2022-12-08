@@ -12,8 +12,7 @@ public class Spawner : MonoBehaviour
         Object = new GameObject[ObjectPrefab.Length];
         for (int i = 0; i < ObjectPrefab.Length; i++)
         {
-            Object[i] = Instantiate(ObjectPrefab[i], transform.position, transform.rotation);
-            Object[i].transform.parent = this.gameObject.transform.parent;
+            Object[i] = Instantiate(ObjectPrefab[i], transform.position, transform.rotation, this.gameObject.transform.parent);
         }   
     }
 }

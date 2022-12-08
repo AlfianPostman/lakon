@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5432186545329936884}
   - component: {fileID: 8992803849530185297}
   - component: {fileID: 6568548698636411547}
-  m_Layer: 0
+  - component: {fileID: 1364520542519518105}
+  m_Layer: 7
   m_Name: DoorIndicatorObj
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1364520542519518105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623174048082051918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.021630991, y: 0.021839378, z: 0.20458701}
+  m_Center: {x: -0.000100632664, y: 0.00031767224, z: 0.0915417}

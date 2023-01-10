@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float currentHP;
     Animator anim;
 
-    // public Image hp;
+    public Image hp;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        // hp.fillAmount = 1f - (currentHP / MaxHP);
+        hp.fillAmount = 1f - (currentHP / MaxHP);
     }
 
     public float TakeDamage(float damage)

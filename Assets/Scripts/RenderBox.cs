@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class RenderBox : MonoBehaviour
 {
+    Spawner sp;
     GameObject Platform;
     Renderer mr;
+    public bool playerInside = false;
     
-    void Awake()
+    void Start()
     {
         Platform = this.transform.parent.gameObject;
         mr = Platform.GetComponent<Renderer>();
+        sp = GetComponent<Spawner>();
 
         mr.enabled = false;
     }
@@ -21,6 +24,8 @@ public class RenderBox : MonoBehaviour
         {
             mr.enabled = true;
             Platform.layer = LayerMask.NameToLayer("PlatformRendered");
+
+            sp.Render();
         }
     }
 }

@@ -12,9 +12,9 @@ public class PlayerController : MonoBehaviour
     float moveSpeed = 0f;
 
     bool walkButton;
-    bool dashButton;
+    bool attackButton;
     bool ableToMove = true;
-    public bool isCarrying = false;
+    public bool canAttack = true;
 
     public Transform cam;
     Vector2 input;
@@ -42,14 +42,20 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("speed", input.magnitude);
 
             walkButton = Input.GetKey(KeyCode.LeftShift);
-            dashButton = Input.GetKeyDown(KeyCode.Space);
+            attackButton = Input.GetKey(KeyCode.Space);
 
-            if (walkButton && !isCarrying) {
+            if (walkButton) {
                 moveSpeed = baseSpeed;
                 anim.SetBool("isWalking", true); 
             } else {
                 moveSpeed = runSpeed;
                 anim.SetBool("isWalking", false); 
+            }
+
+            if (attackButton && canAttack) {
+                StartCoroutine("ResetAttackCooldown");
+            } else {
+                anim.SetBool("isAttacking", false); 
             }
 
         }
@@ -66,7 +72,7 @@ public class PlayerController : MonoBehaviour
         camForward = camForward.normalized;
         camRight = camRight.normalized;
 
-        // Controlling the rotation
+        // Controlling the rotation based on camera angle
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
@@ -80,5 +86,14 @@ public class PlayerController : MonoBehaviour
             Vector3 yVelocity = new Vector3(0, rb.velocity.y, 0);
             rb.velocity = input.x * camRight * moveSpeed + input.y * camForward * moveSpeed + yVelocity;
         }
+    }
+
+    IEnumerator ResetAttackCooldown() {
+        anim.SetBool("isAttacking", true);
+        ableToMove = false;
+        yield return new WaitForSeconds(.8f);
+        anim.SetBool("isAttacking", false); 
+        canAttack = true;
+        ableToMove = true;
     }
 }

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    string parentName = "";
+    bool rendered = false;
     RenderBox rb;
 
     public GameObject[] ObjectPrefab;
     GameObject[] Object;
 
-    public GameObject[] RenderOnCollisions;
-    GameObject[] RenderOnCollision;
+    public GameObject Enemy;
+    public GameObject Boss;
+    
 
     void Awake()
     {
@@ -26,11 +29,17 @@ public class Spawner : MonoBehaviour
 
     public void Render()
     {
-        RenderOnCollision = new GameObject[RenderOnCollisions.Length];
-        for (int i = 0; i < RenderOnCollisions.Length; i++)
-        {
-            RenderOnCollision[i] = Instantiate(RenderOnCollisions[i], transform.position, transform.rotation);
-            // RenderOnCollision[i].transform.parent = this.gameObject.transform.parent;
+        if(!rendered) {
+            parentName = transform.parent.name;
+
+            if(parentName == "T(Clone)" || parentName == "R(Clone)" || parentName == "B(Clone)" || parentName == "L(Clone)") {
+                Instantiate(Boss, transform.position, transform.rotation);
+            } 
+            else {
+                Instantiate(Enemy, transform.position, transform.rotation);
+            }
+
+            rendered = true;
         }
     }
 }

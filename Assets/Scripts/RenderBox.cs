@@ -15,7 +15,7 @@ public class RenderBox : MonoBehaviour
         mr = Platform.GetComponent<Renderer>();
         sp = GetComponent<Spawner>();
 
-        mr.enabled = false;
+        mr.enabled = true;
     }
 
     void OnTriggerEnter(Collider col)

@@ -48,8 +48,8 @@ MonoBehaviour:
   ObjectPrefab:
   - {fileID: 7963494873152806572, guid: bcca812c9b529d24b8c66235a0fc33d8, type: 3}
   - {fileID: 2427336897552758398, guid: 3d1905493087f0e49a94e057dcd12dc9, type: 3}
-  RenderOnCollisions:
-  - {fileID: 7654143101153766713, guid: 2c190533e6cf6e8439e766935cccdac8, type: 3}
+  Enemy: {fileID: 7654143101153766713, guid: 2c190533e6cf6e8439e766935cccdac8, type: 3}
+  Boss: {fileID: 7654143101153766713, guid: 6391043d7f18bd94a97135be51a21ed9, type: 3}
 --- !u!65 &4156903459277647311
 BoxCollider:
   m_ObjectHideFlags: 0

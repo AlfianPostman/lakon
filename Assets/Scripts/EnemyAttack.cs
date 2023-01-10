@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     Unit unit;
+    bool attackCooldown = false;
 
     void Start() {
         unit = GetComponentInParent<Unit>();
 	}
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerStay(Collider col)
     {
         if(col.gameObject.tag == "Player")
         {
@@ -20,7 +21,12 @@ public class EnemyAttack : MonoBehaviour
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(.5f);
-        unit.Attacking();
+        if(!attackCooldown) {
+            yield return new WaitForSeconds(.5f);
+            unit.Attacking();
+            attackCooldown = true;
+            yield return new WaitForSeconds(1f);
+            attackCooldown = false;
+        }
     }
 }

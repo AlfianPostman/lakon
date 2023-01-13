@@ -88,6 +88,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public IEnumerator Dead() {
+        ableToMove = false;
+        yield return new WaitForSeconds(1f);
+    }
+
     IEnumerator ResetAttackCooldown() {
         anim.SetBool("isAttacking", true);
         ableToMove = false;

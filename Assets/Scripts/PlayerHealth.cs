@@ -9,17 +9,25 @@ public class PlayerHealth : MonoBehaviour
     public float currentHP;
     Animator anim;
 
+    public GameObject DeathMenu;
+    PlayerController pc;
     public Image hp;
 
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        pc = GetComponent<PlayerController>();
         currentHP = MaxHP;
     }
 
     void Update()
     {
         hp.fillAmount = 1f - (currentHP / MaxHP);
+
+        if(currentHP <= 0) {
+            pc.StartCoroutine("Dead");
+            DeathMenu.SetActive(true);
+        }
     }
 
     public float TakeDamage(float damage)

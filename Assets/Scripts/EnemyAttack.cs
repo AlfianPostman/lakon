@@ -11,11 +11,27 @@ public class EnemyAttack : MonoBehaviour
         unit = GetComponentInParent<Unit>();
 	}
 
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            unit.StopPathFind();
+        }
+    }
+
     void OnTriggerStay(Collider col)
     {
         if(col.gameObject.tag == "Player")
         {
             StartCoroutine("Attack");
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            unit.StartCoroutine("GetNewPath");
         }
     }
 

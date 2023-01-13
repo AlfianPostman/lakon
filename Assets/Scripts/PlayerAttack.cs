@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject enemyObj;
 
     bool onDamageCooldown = false;
+    public float PlayerDamage = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if(!onDamageCooldown){
             onDamageCooldown = true;
-            enemyObj.GetComponentInParent<EnemyHealth>().TakeDamage(2f);
-            yield return new WaitForSeconds(2f);
+            enemyObj.GetComponentInParent<EnemyHealth>().TakeDamage(PlayerDamage);
+            yield return new WaitForSeconds(.5f);
             
             onDamageCooldown = false;
         }

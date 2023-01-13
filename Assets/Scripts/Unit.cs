@@ -9,6 +9,8 @@ public class Unit : MonoBehaviour {
 	int targetIndex = 0;
 	public GameObject player;
 	Animator anim;
+
+	public bool needPath = true;
 	bool isAlive = true;
 
 	EnemyHealth enemyHP;
@@ -21,16 +23,16 @@ public class Unit : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown("r"))
-        {
-			PathRequestManager.RequestPath(transform.position, player.transform.position, OnPathFound);
-        }
+		// if (Input.GetKeyDown("r"))
+        // {
+		// 	PathRequestManager.RequestPath(transform.position, player.transform.position, OnPathFound);
+        // }
 		if (enemyHP.currentHP <= 0)
         {
 			isAlive = false;
 			StartCoroutine("Died");
         }
-		if (path != null) {
+		if (path != null && needPath) {
 			if (targetIndex >= path.Length) {
 				StartCoroutine("GetNewPath");
 			}
@@ -46,6 +48,7 @@ public class Unit : MonoBehaviour {
 			StartCoroutine("FollowPath");
 		}
 	}
+
 
 	IEnumerator FollowPath() {
 		Vector3 currentWaypoint = path[0];
@@ -66,9 +69,13 @@ public class Unit : MonoBehaviour {
 		}
 	}
 
-	IEnumerator GetNewPath() {
-		yield return new WaitForSeconds (1);
+	public IEnumerator GetNewPath() {
+		yield return new WaitForSeconds (.5f);
 		PathRequestManager.RequestPath(transform.position, player.transform.position, OnPathFound);
+	}
+	
+	public void StopPathFind() {
+		needPath = false;
 	}
 
 	public void OnDrawGizmos() {
@@ -91,13 +98,24 @@ public class Unit : MonoBehaviour {
     {
         if(col.gameObject.tag == "Player")
         {
-            PathRequestManager.RequestPath(transform.position, player.transform.position, OnPathFound);
+            needPath = true;
+			StartCoroutine("GetNewPath");
+        }
+    }
+
+	void OnTriggerExit(Collider col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            needPath = true;
+			StartCoroutine("GetNewPath");
         }
     }
 
 	public void Attacking()
 	{
-		StartCoroutine("Attack");
+		if(isAlive)
+			StartCoroutine("Attack");
 	}
 
 	IEnumerator Attack()
@@ -115,6 +133,7 @@ public class Unit : MonoBehaviour {
 
 	IEnumerator Attacked()
 	{
+		transform.LookAt( player.transform );
 		anim.SetBool("isAttacked", true);
 		yield return new WaitForSeconds(.1f);
 		anim.SetBool("isAttacked", false);

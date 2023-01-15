@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     Unit unit;
 
     public Image hp;
+    public ParticleSystem hit;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class EnemyHealth : MonoBehaviour
     public float TakeDamage(float damage)
     {
         unit.Hurt();
+        hit.Play();
         currentHP -= damage;
 
         return currentHP;

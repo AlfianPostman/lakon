@@ -8,12 +8,16 @@ public class RenderBox : MonoBehaviour
     GameObject Platform;
     Renderer mr;
     public bool playerInside = false;
+
+    public GameObject gbObj;
+    public GlobalVariable gb;
     
     void Start()
     {
         Platform = this.transform.parent.gameObject;
         mr = Platform.GetComponent<Renderer>();
         sp = GetComponent<Spawner>();
+        gb = gbObj.GetComponent<GlobalVariable>();
 
         mr.enabled = true;
     }
@@ -25,7 +29,15 @@ public class RenderBox : MonoBehaviour
             mr.enabled = true;
             Platform.layer = LayerMask.NameToLayer("PlatformRendered");
 
-            sp.Render();
+            if(gb.firstRender) {
+                sp.rendered = true;
+                gb.DoneRendering();
+
+                return;
+            }
+            else {
+                sp.Render();
+            }
         }
     }
 }

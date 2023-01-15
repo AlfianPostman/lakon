@@ -15,6 +15,9 @@ public class Unit : MonoBehaviour {
 
 	EnemyHealth enemyHP;
 
+	public ParticleSystem hit;
+	public ParticleSystem die;
+
 	void Start() {
 		anim = GetComponentInChildren<Animator>();
 		player = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -37,7 +40,6 @@ public class Unit : MonoBehaviour {
 				StartCoroutine("GetNewPath");
 			}
 		}
-
 	}
 
 	public void OnPathFound(Vector3[] newPath, bool pathSuccessful) {
@@ -76,6 +78,7 @@ public class Unit : MonoBehaviour {
 	
 	public void StopPathFind() {
 		needPath = false;
+		path = null;
 	}
 
 	public void OnDrawGizmos() {
@@ -141,6 +144,8 @@ public class Unit : MonoBehaviour {
 
 	IEnumerator Died()
 	{
+		hit.Play();
+		die.Play();
 		yield return new WaitForSeconds(3f);
 		Destroy(this.gameObject);
 	}

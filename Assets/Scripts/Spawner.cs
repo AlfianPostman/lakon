@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     string parentName = "";
-    bool rendered = false;
+    public bool rendered = false;
     RenderBox rb;
 
     public GameObject[] ObjectPrefab;
@@ -13,23 +13,38 @@ public class Spawner : MonoBehaviour
 
     public GameObject Enemy;
     public GameObject Boss;
-    
+
+    public GameObject gbObj;
+    public GlobalVariable gb;
 
     void Awake()
     {
+        rb = GetComponent<RenderBox>();
+        gb = gbObj.GetComponent<GlobalVariable>();
+
         Object = new GameObject[ObjectPrefab.Length];
         for (int i = 0; i < ObjectPrefab.Length; i++)
         {
             Object[i] = Instantiate(ObjectPrefab[i], transform.position, transform.rotation);
             Object[i].transform.parent = this.gameObject.transform.parent;
-        }
 
-        rb = GetComponent<RenderBox>();
+            parentName = Object[i].transform.parent.name;
+
+            if(parentName == "T(Clone)")
+                gb.bossCount += 1;
+            if(parentName == "R(Clone)")
+                gb.bossCount += 1;
+            if(parentName == "B(Clone)")
+                gb.bossCount += 1;
+            if(parentName == "L(Clone)")
+                gb.bossCount += 1;;
+        }
     }
 
     public void Render()
     {
         if(!rendered) {
+
             parentName = transform.parent.name;
 
             if(parentName == "T(Clone)" || parentName == "R(Clone)" || parentName == "B(Clone)" || parentName == "L(Clone)") {

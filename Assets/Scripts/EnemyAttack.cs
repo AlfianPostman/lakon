@@ -23,6 +23,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
+            unit.StopPathFind();
             StartCoroutine("Attack");
         }
     }

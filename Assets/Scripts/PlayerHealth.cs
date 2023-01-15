@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     PlayerController pc;
     public Image hp;
 
+    public ParticleSystem hit;
+
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -32,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
 
     public float TakeDamage(float damage)
     {
+        hit.Play();
         currentHP -= damage;
 
         Debug.Log("Player Health: " + currentHP);

@@ -522,7 +522,13 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 4
+    m_ConditionEvent: speed
+    m_EventTreshold: 0.1
+  - m_ConditionMode: 2
+    m_ConditionEvent: isAttacking
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7889270227164569633}
   m_Solo: 0

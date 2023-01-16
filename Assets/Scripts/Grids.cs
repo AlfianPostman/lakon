@@ -13,10 +13,15 @@ public class Grids : MonoBehaviour {
 	float nodeDiameter;
 	int gridSizeX, gridSizeY;
 
-	void Awake() {
+	void Start() {
 		nodeDiameter = nodeRadius*2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y/nodeDiameter);
+		StartCoroutine("WaitABit");
+	}
+
+	IEnumerator WaitABit() {
+		yield return new WaitForSeconds(1f);
 		CreateGrid();
 	}
 

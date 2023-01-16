@@ -19,7 +19,7 @@ public class RenderBox : MonoBehaviour
         sp = GetComponent<Spawner>();
         gb = gbObj.GetComponent<GlobalVariable>();
 
-        mr.enabled = true;
+        mr.enabled = false;
     }
 
     void OnTriggerEnter(Collider col)
@@ -29,7 +29,7 @@ public class RenderBox : MonoBehaviour
             mr.enabled = true;
             Platform.layer = LayerMask.NameToLayer("PlatformRendered");
 
-            if(gb.firstRender) {
+            if(GlobalVariable.firstRender) {
                 sp.rendered = true;
                 gb.DoneRendering();
 
@@ -38,6 +38,13 @@ public class RenderBox : MonoBehaviour
             else {
                 sp.Render();
             }
+        }
+    }
+    void OnTriggerStay(Collider col)
+    {
+        if(col.gameObject.tag == "Environment")
+        {
+            Debug.Log("asdad");
         }
     }
 }

@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator ResetAttackCooldown() {
         anim.SetBool("isAttacking", true);
         ableToMove = false;
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(.3f);
         anim.SetBool("isAttacking", false); 
         canAttack = true;
         ableToMove = true;

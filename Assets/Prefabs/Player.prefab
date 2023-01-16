@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObj: {fileID: 0}
-  PlayerDamage: 2
+  PlayerDamage: 5
 --- !u!136 &8175337531386143327
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ BoxCollider:
   m_GameObject: {fileID: 878962316}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.000000014901163, y: 0.0000001192093, z: -0.000000029802326}
@@ -392,7 +392,7 @@ BoxCollider:
   m_GameObject: {fileID: 1976981281}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.000000014901163, y: 0.0000001192093, z: -0.000000029802326}
@@ -8130,6 +8130,7 @@ GameObject:
   - component: {fileID: 7601391518179983294}
   - component: {fileID: 7601391518179983293}
   - component: {fileID: 829291248}
+  - component: {fileID: 6459385786751860610}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8267,6 +8268,19 @@ MonoBehaviour:
   DeathMenu: {fileID: 0}
   hp: {fileID: 0}
   hit: {fileID: 4156519647573581077}
+--- !u!114 &6459385786751860610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601391518179983280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ee0ba3b862da34798b59a93f0accfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!1 &7621831991932592117
 GameObject:
   m_ObjectHideFlags: 0

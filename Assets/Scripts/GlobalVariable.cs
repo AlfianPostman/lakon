@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class GlobalVariable : MonoBehaviour
 {
-    public bool firstRender;
-    public int bossCount;
+    public static bool firstRender;
+    public static bool firstRoom;
+    public static int bossCount;
 
     private void Start() 
     {
-        GameObject.DontDestroyOnLoad(this);
         firstRender = true;
     }
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
-            Debug.Log("Boss Count: " + bossCount);
+            Debug.Log("Boss Count: " + bossCount/2);
         }
     }
 
     public void DoneRendering()
     {
-        Debug.Log("ASDSADASD");
         firstRender = false;
     }
 }

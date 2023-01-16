@@ -7,6 +7,8 @@ public class Unit : MonoBehaviour {
 	public float speed = 3f;
 	Vector3[] path;
 	int targetIndex = 0;
+
+	public GameObject drop;
 	public GameObject player;
 	Animator anim;
 
@@ -147,6 +149,9 @@ public class Unit : MonoBehaviour {
 		hit.Play();
 		die.Play();
 		yield return new WaitForSeconds(3f);
+		if(drop != null) {
+			Instantiate(drop, transform.position, transform.rotation);
+		}
 		Destroy(this.gameObject);
 	}
 }

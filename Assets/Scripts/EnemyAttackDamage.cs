@@ -5,13 +5,8 @@ using UnityEngine;
 public class EnemyAttackDamage : MonoBehaviour
 {
     public GameObject Obj;
+    public float damage = 2f;
     PlayerHealth hp;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider col)
     {
@@ -26,7 +21,7 @@ public class EnemyAttackDamage : MonoBehaviour
 
     IEnumerator DamageEnemy()
     {
-        hp.TakeDamage(2f);
+        hp.TakeDamage(damage);
         yield return new WaitForSeconds(.1f);
     }
 }

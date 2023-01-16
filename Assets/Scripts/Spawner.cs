@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
     public GameObject[] ObjectPrefab;
     GameObject[] Object;
 
+    public int numberOfBosses = 3;
+
     public GameObject Enemy;
     public GameObject Boss;
 
@@ -26,18 +28,6 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < ObjectPrefab.Length; i++)
         {
             Object[i] = Instantiate(ObjectPrefab[i], transform.position, transform.rotation);
-            Object[i].transform.parent = this.gameObject.transform.parent;
-
-            parentName = Object[i].transform.parent.name;
-
-            if(parentName == "T(Clone)")
-                gb.bossCount += 1;
-            if(parentName == "R(Clone)")
-                gb.bossCount += 1;
-            if(parentName == "B(Clone)")
-                gb.bossCount += 1;
-            if(parentName == "L(Clone)")
-                gb.bossCount += 1;;
         }
     }
 

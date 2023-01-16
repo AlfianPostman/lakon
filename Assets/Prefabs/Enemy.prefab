@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  drop: {fileID: 0}
   player: {fileID: 0}
   needPath: 1
   hit: {fileID: 348895622694641601}

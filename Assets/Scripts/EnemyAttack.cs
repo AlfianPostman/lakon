@@ -39,8 +39,19 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator Attack()
     {
         if(!attackCooldown) {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.3f);
             unit.Attacking();
+            attackCooldown = true;
+            yield return new WaitForSeconds(1f);
+            attackCooldown = false;
+        }
+    }
+
+    IEnumerator AttackFireBall()
+    {
+        if(!attackCooldown) {
+            yield return new WaitForSeconds(.5f);
+            StartCoroutine("unit.AttackSpecial");
             attackCooldown = true;
             yield return new WaitForSeconds(1f);
             attackCooldown = false;

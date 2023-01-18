@@ -15,7 +15,7 @@ public class GlobalVariable : MonoBehaviour
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
-            Debug.Log("Boss Count: " + bossCount/2);
+            // Debug.Log("Boss Count: " + bossCount/2);
         }
     }
 

@@ -26,6 +26,10 @@ public class PlayerHealth : MonoBehaviour
     {
         hp.fillAmount = 1f - (currentHP / MaxHP);
 
+        if(currentHP > MaxHP) {
+            currentHP = MaxHP;
+        }
+
         if(currentHP <= 0) {
             pc.StartCoroutine("Dead");
             DeathMenu.SetActive(true);

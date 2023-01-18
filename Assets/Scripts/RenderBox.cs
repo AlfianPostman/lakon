@@ -19,7 +19,7 @@ public class RenderBox : MonoBehaviour
         sp = GetComponent<Spawner>();
         gb = gbObj.GetComponent<GlobalVariable>();
 
-        mr.enabled = false;
+        mr.enabled = true;
     }
 
     void OnTriggerEnter(Collider col)

@@ -7,6 +7,8 @@ TagManager:
   - Environment
   - Enemy
   - EnemyHurtBox
+  - Gate
+  - FirstRoom
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Plane
   - CanvasSprite
   - HurtBox
-  - 
+  - Gate
   - 
   - 
   - 

@@ -15,6 +15,8 @@ public class Unit : MonoBehaviour {
 	public bool needPath = true;
 	bool isAlive = true;
 
+	public GameObject gate;
+
 	EnemyHealth enemyHP;
 
 	public ParticleSystem hit;
@@ -106,6 +108,10 @@ public class Unit : MonoBehaviour {
             needPath = true;
 			StartCoroutine("GetNewPath");
         }
+		if(col.gameObject.tag == "Gate")
+		{
+			gate = col.gameObject;
+		}
     }
 
 	void OnTriggerExit(Collider col)
@@ -130,6 +136,16 @@ public class Unit : MonoBehaviour {
 		yield return new WaitForSeconds(.1f);
 		anim.SetBool("isAttacking", false);
 	}
+	
+	public IEnumerator AttackSpecial()
+	{
+		if(isAlive) {
+			transform.LookAt( player.transform );
+			anim.SetBool("isAttacking", true);
+			yield return new WaitForSeconds(.1f);
+			anim.SetBool("isAttacking", false);
+		}
+	}
 
 	public void Hurt()
 	{
@@ -149,6 +165,7 @@ public class Unit : MonoBehaviour {
 		hit.Play();
 		die.Play();
 		yield return new WaitForSeconds(3f);
+		gate.SetActive(false);
 		if(drop != null) {
 			Instantiate(drop, transform.position, transform.rotation);
 		}

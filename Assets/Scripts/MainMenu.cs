@@ -8,7 +8,6 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadSceneAsync("MapGen");
-        
     }
 
     public void ExitGame()

@@ -6,10 +6,14 @@ public class Artifact : MonoBehaviour
 {
     bool isTaking = false;
     public Animator anim;
+    GameObject plyr;
+    PlayerHealth ph;
 
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Player") {
+            plyr = col.gameObject;
+            ph = plyr.GetComponent<PlayerHealth>();
             StartCoroutine("Taken");
         }
     }
@@ -18,6 +22,7 @@ public class Artifact : MonoBehaviour
     {
         if(isTaking == false) {
             IngameSceneManager.artifact++;
+            ph.currentHP += 5;
             isTaking = true;
             anim.Play("ArtifactTaken");
 

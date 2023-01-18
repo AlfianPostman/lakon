@@ -206,11 +206,11 @@ public class LevelGeneration : MonoBehaviour
             drawPos2.x *= 30;
             drawPos2.z *= 30;
             
-            MapSpriteSelector mapper = Object.Instantiate(roomWhiteObj, drawPos, Quaternion.identity).GetComponent<MapSpriteSelector>();
-            mapper.top = room.doorTop;
-            mapper.bottom = room.doorBot;
-            mapper.right = room.doorRight;
-            mapper.left = room.doorLeft;
+            // MapSpriteSelector mapper = Object.Instantiate(roomWhiteObj, drawPos, Quaternion.identity).GetComponent<MapSpriteSelector>();
+            // mapper.top = room.doorTop;
+            // mapper.bottom = room.doorBot;
+            // mapper.right = room.doorRight;
+            // mapper.left = room.doorLeft;
             
             PlatformSelector platter = Object.Instantiate(platformObj, drawPos2, Quaternion.identity).GetComponent<PlatformSelector>();
             platter.top = room.doorTop;
@@ -218,7 +218,7 @@ public class LevelGeneration : MonoBehaviour
             platter.right = room.doorRight;
             platter.left = room.doorLeft;
 
-            mapper.transform.parent = targetCanvas.transform;
+            // mapper.transform.parent = targetCanvas.transform;
             platter.transform.parent = gameObject.transform;
         }
     }

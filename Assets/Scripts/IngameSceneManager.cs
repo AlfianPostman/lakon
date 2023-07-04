@@ -16,7 +16,7 @@ public class IngameSceneManager : MonoBehaviour
         txt.text = "Artifact Found " + artifact;
 
         if(artifact >= 3)
-        {   
+        {
             artifact = 0;
             StartCoroutine("Winning");
         }
@@ -26,7 +26,7 @@ public class IngameSceneManager : MonoBehaviour
     {
         Debug.Log("Yey Menang!!");
         yield return new WaitForSeconds(1f);
-        WinScreen.SetActive(true);
+        // WinScreen.SetActive(true);
     }
 
     public void RetryScene()
